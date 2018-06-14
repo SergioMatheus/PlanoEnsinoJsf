@@ -1,0 +1,49 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="WEB-INF/template.xhtml"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+	<ui:define name="corpo">
+
+
+		<title>Plano de Ensino</title>
+		<h:form id="form">
+
+			<br />
+
+			<h2>Visualização de Planos de Ensino</h2>
+
+			<p:tabView>
+				<p:tab title="Visualizar Plano de Ensino">
+					<p:separator />
+					
+					<p:panel id="tabview" header="Plano de Ensino X" 
+						toggleable="true" toggleOrientation="horizontal">
+						<h:panelGrid columns="2" cellpadding="10">
+							<h:outputText value="objetivo:" />
+							<h:outputText value="#{mbPlanoEnsino.objetivo}" />
+							<h:outputText value="metodologia:" />
+							<h:outputText value="bean.metodologia:" />
+							<h:outputText value="objetivo:" />
+							<h:outputText value="bean.objetivo:" />
+							<h:outputText value="metodologia:" />
+							<h:outputText value="bean.metodologia:" />
+							<h:outputText value="objetivo:" />
+							<h:outputText value="bean.objetivo:" />
+							<h:outputText value="metodologia:" />
+							<h:outputText value="bean.metodologia:" />
+							<h:outputText value="objetivo:" />
+							<h:outputText value="bean.objetivo:" />
+							<h:outputText value="metodologia:" />
+							<h:outputText value="bean.metodologia:" />
+						</h:panelGrid>
+					</p:panel>
+					</p:tab>
+			</p:tabView>
+		</h:form>
+	</ui:define>
+
+</ui:composition>
+

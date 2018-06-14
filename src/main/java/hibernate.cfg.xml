@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- Database connection settings -->
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost/hibernatedb</property>
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">admin</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<!-- Mapping -->
+		<mapping class="model.Bibliografia" />
+		<mapping class="model.Conteudo" />
+		<mapping class="model.Disciplina" />
+		<mapping class="model.PlanoDeEnsino" />
+		<mapping class="model.Professor" />
+		<mapping class="model.Recurso" />
+	</session-factory>
+</hibernate-configuration>

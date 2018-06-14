@@ -1,0 +1,52 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="WEB-INF/template.xhtml"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+	<ui:define name="corpo">
+
+
+		<title>Cadastrar Bibliografia</title>
+		<h:form id="form">
+
+			<br />
+			<h2>Bibliografia</h2>
+
+			<p:tabView>
+				<p:tab title="Cadastrar Bibliografia">
+					<p:separator />
+					<h:panelGrid columns="2" cellpadding="10">
+						<p:outputLabel value="Titulo do Livro: " />
+						<p:inputText size="55" value="#{mbBibliografia.titulo_livro}"
+							placeholder="Escreva aqui o titulo da bibliografia" />
+
+						<p:outputLabel value="Escritor do Livro: " />
+						<p:inputText size="55" value="#{mbBibliografia.escritor_livro}"
+							placeholder="Escreva aqui o nome do escritor da bibliografia" />
+
+						<p:outputLabel value="Edição do Livro: " />
+						<p:inputText size="55" value="#{mbBibliografia.edicao_livro}"
+							placeholder="Escreva aqui a edição da bibliografia" />
+
+						<p:outputLabel value="Editora do Livro: " />
+						<p:inputText size="55" value="#{mbBibliografia.editora_livro}"
+							placeholder="Escreva aqui a editora da bibliografia" />
+
+						<p:outputLabel value="Ano de Lançamento: " />
+						<p:inputText size="55"
+							value="#{mbBibliografia.ano_lancamento_livro}"
+							placeholder="Escreva aqui o ano de lançamento da bibliografia" />
+					</h:panelGrid>
+				</p:tab>
+			</p:tabView>
+		</h:form>
+		<h:form>
+			<p:panelGrid style="border:0px">
+				<p:commandButton value="Salvar" icon="ui-icon-disk"
+					action="#{mbBibliografia.salvar}" />
+			</p:panelGrid>
+		</h:form>
+	</ui:define>
+</ui:composition>
+

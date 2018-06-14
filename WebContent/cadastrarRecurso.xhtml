@@ -1,0 +1,38 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="WEB-INF/template.xhtml"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+	<ui:define name="corpo">
+
+
+		<title>Cadastrar Recurso</title>
+		<h:form id="form">
+
+			<br />
+			<h2>Recurso</h2>
+
+			<p:tabView>
+				<p:tab title="Cadastrar Recurso">
+					<p:separator />
+					<h:panelGrid columns="2" cellpadding="10">
+						<p:outputLabel value="Tipo do Recurso: " />
+						<p:inputText size="55" value="#{mbRecurso.tipo_recurso}"
+							placeholder="Escreva aqui o Tipo do recurso" />
+
+						<p:outputLabel value="Descrição do Recurso: " />
+						<p:inputText size="55" value="#{mbRecurso.descricao_recurso}"
+							placeholder="Escreva aqui a Descrição do recurso" />
+					</h:panelGrid>
+				</p:tab>
+			</p:tabView>
+			<p:panelGrid style="border:0px">
+				<p:commandButton value="Salvar" icon="ui-icon-disk"
+					action="#{mbRecurso.salvar}" />
+			</p:panelGrid>
+		</h:form>
+	</ui:define>
+</ui:composition>
+

@@ -1,0 +1,86 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="WEB-INF/template.xhtml"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+	<ui:define name="corpo">
+
+
+		<title>Cadastrar Plano de Ensino</title>
+		<h:form id="form">
+
+			<br />
+
+			<h2>Plano de Ensino</h2>
+
+			<p:tabView>
+				<p:tab title="Cadastrar Plano de Ensino">
+					<p:separator />
+					<h:panelGrid columns="4" cellpadding="10">
+						<p:outputLabel value="Objetivo: " />
+						<p:inputText size="55" value="#{mbPlanoEnsino.objetivo}"
+							placeholder="Descreva aqui o Objetivo da disciplina" />
+						<p:outputLabel value="Conteudo: " />
+						<p:inputText size="55" value="#{mbPlanoEnsino.conteudo.titulo_conteudo}"
+							placeholder="Digite o conteudo da disciplina" />
+						<p:outputLabel value="Disciplina: " />
+						<p:inputText placeholder="Escreva a disciplina " size="55" />
+						<p:outputLabel value="Nome Professor" />
+						<p:inputText
+							value="#{mbPlanoEnsino.nome_professor}"
+							placeholder="Digite o nome do professor criador do Plano de Ensino"
+							size="55" />
+						<p:outputLabel value="Curso: " />
+						<p:inputText size="55" value="#{mbPlanoEnsino.curso}"
+							placeholder="Escreva o curso que a disciplina esta inserida" />
+						<p:outputLabel value="Bibliografia: " />
+						<p:inputText size="55"
+							placeholder="Escreva a bibliografia da disciplina" />
+						<p:outputLabel value="Recurso: " />
+						<p:inputText size="55"
+							placeholder="Descreva os Recursos que serão utilizados na disciplina" />
+						<p:outputLabel value="Carga Horaria: " />
+						<p:inputText size="55" placeholder="60 horas" />
+
+						<p:outputLabel value="Tipo de avaliacao: " />
+						<p:selectOneMenu filter="true" value="#{mbPlanoEnsino.tipo_avaliacao}">
+							<f:selectItem itemValue="" itemLabel="Escolha um" disable="true" />
+							<f:selectItem itemValue="CST"
+								itemLabel="Continuada - Somente Trabalhos" />
+							<f:selectItem itemValue="CSP"
+								itemLabel="Continuada - Somente Provas" />
+							<f:selectItem itemValue="CPT"
+								itemLabel="Continuada - Provas e Trabalhos" />
+						</p:selectOneMenu>
+
+						<p:outputLabel value="Status: " />
+						<p:selectOneMenu filter="true" value="Status_plano">
+							<f:selectItem itemValue="" itemLabel="Escolha um" disable="true" />
+							<f:selectItem itemValue="true" itemLabel="Ativo" />
+							<f:selectItem itemValue="false" itemLabel="Inativo" />
+						</p:selectOneMenu>
+
+
+
+					</h:panelGrid>
+					<p:separator />
+					<h:panelGrid columns="1">
+						<p:outputLabel value="Metodologia: " />
+						<p:inputText size="130"
+							placeholder="Descreva o Tipo de metodologia a ser utilizado" value="#{mbPlanoEnsino.metodologia}" />
+					</h:panelGrid>
+				</p:tab>
+			</p:tabView>
+			
+			<p:panelGrid style="border:0px">
+				<p:commandButton value="Salvar" icon="ui-icon-disk"
+					action="#{mbPlanoEnsino.salvar}" />
+				<p:commandButton value="Excluir" action="#{mbPlanoEnsino.deletar}" />
+			</p:panelGrid>
+		</h:form>
+	</ui:define>
+
+</ui:composition>
+

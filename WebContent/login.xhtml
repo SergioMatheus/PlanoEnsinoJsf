@@ -1,0 +1,110 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="WEB-INF/template.xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:fb="http://www.facebook.com/2008/fbml">
+
+
+	<ui:define name="corpo">
+		<script>
+			//inicio parte facebook
+
+			window.fbAsyncInit = function() {
+				FB.init({
+					appId : '231767514074952',
+					cookie : true,
+					xfbml : true,
+					version : 'v3.0'
+				});
+
+				FB.AppEvents.logPageView();
+
+			};
+
+			(function(d, s, id) {
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) {
+					return;
+				}
+				js = d.createElement(s);
+				js.id = id;
+				js.src = "https://connect.facebook.net/en_US/sdk.js";
+				fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+
+			function checkLoginState() {
+				FB.getLoginStatus(function(response) {
+					statusChangeCallback(response);
+				});
+			}
+
+			function statusChangeCallback(response) {
+				console.log('statusChangeCallback');
+				console.log(response);
+				// o objeto retornado response possue status vamos verifica-lo
+				if (response.status === 'connected') {
+					// logado no facebook e na aplicacao
+					testAPI();
+				} else if (response.status === 'not_authorized') {
+					document.getElementById('status').innerHTML = 'Favor, faça seu login nesta aplicação';
+				} else {
+					document.getElementById('status').innerHTML = 'Favor logar no facebook';
+				}
+			}
+
+			function testAPI() {
+				FB
+						.api(
+								'/me',
+								function(response) {
+									document.getElementById('info').innerHTML = "Obrigado pelo Seu Login: " +(response.name);
+									setTimeout("document.location = 'http://localhost:8080/PlanoDeEnsino/visualizarPlanoEnsino.xhtml'",5000);
+									console.log(response.username);
+									console.log(response.link);
+									console.log(response.email);
+									console.log(response.gender);
+									console.log(response.id);
+								});
+			}
+		</script>
+
+
+		<title>Login</title>
+		<h:form id="form">
+
+			<br />
+
+			<h2>Login</h2>
+
+			<p:tabView>
+				<p:tab title="Login">
+					<p:separator />
+					<h:panelGrid columns="2">
+						<p:outputLabel value="E-mail" />
+						<p:inputText size="30" id="username" value="#{mbloginBean.email}" />
+
+						<p:outputLabel value="Senha" />
+						<p:password size="30" id="password" value="#{mbloginBean.senha}" />
+
+						<h:panelGroup />
+						<p:commandButton value="Login" action="#{mbloginBean.logar}"
+							ajax="false" />
+					</h:panelGrid>
+					<br />
+					<fb:login-button scope="public_profile,email"
+						onlogin="checkLoginState();">
+					</fb:login-button>
+					
+					<p id="info"></p>
+
+					<br />
+					<div id="status"></div>
+
+					<p:separator />
+				</p:tab>
+			</p:tabView>
+		</h:form>
+	</ui:define>
+
+</ui:composition>

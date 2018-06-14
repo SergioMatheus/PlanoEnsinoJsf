@@ -1,0 +1,43 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="WEB-INF/template.xhtml"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+	<ui:define name="corpo">
+
+
+		<title>Cadastrar Disciplina</title>
+		<h:form id="form">
+
+			<br />
+
+			<h2>Disciplina</h2>
+
+			<p:tabView>
+				<p:tab title="Cadastrar Disciplina">
+					<p:separator />
+					<h:panelGrid columns="2" cellpadding="10">
+						<p:outputLabel value="Nome da Disciplina: " />
+						<p:inputText size="55" value="#{mbDisciplina.nome_disciplina}"
+							placeholder="Digite aqui o nome da disciplina" />
+						<p:outputLabel value="Nome do coordenador: " />
+						<p:inputText size="55" value="#{mbDisciplina.nome_coordenador}"
+							placeholder="Digite aqui o nome do coordenador da disciplina" />
+						<p:outputLabel value="Carga Horaria: " />
+						<p:inputText size="55" value="#{mbDisciplina.carga_horaria}"
+							placeholder="Digite aqui a carga horaria da disciplina" />
+					</h:panelGrid>
+					<p:separator />
+				</p:tab>
+			</p:tabView>
+			<p:panelGrid style="border:0px">
+				<p:commandButton value="Salvar" icon="ui-icon-disk"
+					action="#{mbDisciplina.salvar}" />
+			</p:panelGrid>
+		</h:form>
+	</ui:define>
+
+</ui:composition>
+

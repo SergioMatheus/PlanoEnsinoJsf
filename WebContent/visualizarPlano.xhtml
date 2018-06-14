@@ -1,0 +1,67 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="WEB-INF/template.xhtml">
+
+
+	<ui:define name="corpo">
+
+
+		<title>Visualizar Plano de Ensino</title>
+		<h:form id="form">
+
+			<br />
+
+			<h2>Plano de Ensino</h2>
+
+			<p:tabView>
+				<p:tab title="Visualizar Plano de Ensino">
+					<p:separator />
+					<h:panelGrid columns="4" cellpadding="10">
+						<p:outputLabel value="Objetivo: " />
+						<h:outputText size="55" value="---Objetivo da disciplina--" />
+						<p:outputLabel value="Conteudo: " />
+						<h:outputText size="55" value="---Conteudo da disciplina---" />
+						<p:outputLabel value="Disciplina: " />
+						<h:outputText value="---disciplina---" size="55" />
+						<p:outputLabel value="Nome Professor" />
+						<h:outputText value="---professor---" size="55" />
+						<p:outputLabel value="Curso: " />
+						<h:outputText size="55" value="---Curso---" />
+						<p:outputLabel value="Bibliografia: " />
+						<h:outputText size="55" value="---bibliografia---" />
+						<p:outputLabel value="Recurso: " />
+						<h:outputText size="55" value="---recursos---" />
+						<p:outputLabel value="Carga Horaria: " />
+						<h:outputText size="55" value="---horas---" />
+
+						<p:outputLabel value="Tipo de avaliacao: " />
+						<p:selectOneMenu filter="true">
+							<f:selectItem itemValue="" itemLabel="---avaliacao---" disable="true" />
+						</p:selectOneMenu>
+
+						<p:outputLabel value="Status: " />
+						<p:selectOneMenu filter="true">
+							<f:selectItem itemValue="" itemLabel="---status escolhido---"
+								disable="true" />
+						</p:selectOneMenu>
+
+
+
+					</h:panelGrid>
+					<p:separator />
+					<h:panelGrid columns="1">
+						<p:outputLabel value="Metodologia: " />
+						<h:outputText size="130" placeholder="---metodologia---" />
+					</h:panelGrid>
+				</p:tab>
+
+			</p:tabView>
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>
+

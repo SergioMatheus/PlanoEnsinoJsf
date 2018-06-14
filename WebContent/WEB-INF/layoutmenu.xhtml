@@ -1,0 +1,25 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+	
+		<h:form>
+			<p:panelMenu style="width:250px">
+				<p:submenu label="Cadastros Básicos">
+					<p:menuitem value="Cadastrar Plano de Ensino" url="/cadastrarPlanoEnsino.xhtml" icon="icon-users" />
+					<p:menuitem value="Cadastrar Disciplina" url="/cadastrarDisciplina.xhtml" icon="icon-user" />
+					<p:menuitem value="Cadastrar Conteudo" url="/cadastrarConteudo.xhtml" icon="icon-user" />
+					<p:menuitem value="Cadastrar Bibliografia" url="/cadastrarBibliografia.xhtml" icon="icon-user" />
+					<p:menuitem value="Cadastrar Recurso" url="/cadastrarRecurso.xhtml" icon="icon-user" />
+				</p:submenu>
+				
+				<p:submenu label="Planos de Ensino">
+					<p:menuitem value="Visualizar Planos de Ensinos" url="/visualizarPlanoEnsino.xhtml" icon="icon-user" />
+				</p:submenu>
+				
+			</p:panelMenu>	
+		</h:form>
+
+</ui:composition>
