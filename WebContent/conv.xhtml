@@ -1,0 +1,31 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns = "http://www.w3.org/1999/xhtml"   
+   xmlns:h = "http://java.sun.com/jsf/html"
+   xmlns:f = "http://java.sun.com/jsf/core">
+   <h:head>
+      <title>Converter URL</title>			
+   </h:head>
+   
+   <h:body>
+   <div class="all">
+      <h2>Converter</h2>
+      <p>Informe um url, para ser formatado como:</p>
+      <p>Entrada: teste</p>
+      <p> Saída: http://teste.com.br</p>
+      <h:form>
+         <h:inputText id = "urlInput" value = "#{userData.data}" 
+            label = "URL" >
+            <f:converter converterId = "com.tutorialspoint.test.UrlConverter" />
+         </h:inputText>		 
+         <h:commandButton value = "submit" action = "result"/>
+         <h:message for = "urlInput" style = "color:red" />
+      </h:form>
+      <h:panelGrid columns="1" cellpadding="10">
+      	<a href="/PlanoDeEnsino">Retornar</a>
+      </h:panelGrid>
+      </div>   
+   </h:body>
+</html>
