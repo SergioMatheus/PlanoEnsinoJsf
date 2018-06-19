@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://model" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://model" xmlns:intf="http://model" xmlns:tns1="http://context.faces.javax" xmlns:tns2="http://component.faces.javax" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://model" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://component.faces.javax"/>
+   <import namespace="http://context.faces.javax"/>
+   <element name="getAsString">
+    <complexType>
+     <sequence>
+      <element name="facesContext" type="xsd:anyType"/>
+      <element name="component" type="xsd:anyType"/>
+      <element name="value" type="xsd:anyType"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getAsStringResponse">
+    <complexType>
+     <sequence>
+      <element name="getAsStringReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getAsObject">
+    <complexType>
+     <sequence>
+      <element name="value" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getAsObjectResponse">
+    <complexType>
+     <sequence>
+      <element name="getAsObjectReturn" type="xsd:anyType"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getAsObjectResponse">
+
+      <wsdl:part element="impl:getAsObjectResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAsObjectRequest">
+
+      <wsdl:part element="impl:getAsObject" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAsStringRequest">
+
+      <wsdl:part element="impl:getAsString" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAsStringResponse">
+
+      <wsdl:part element="impl:getAsStringResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="UrlConverter">
+
+      <wsdl:operation name="getAsString">
+
+         <wsdl:input message="impl:getAsStringRequest" name="getAsStringRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getAsStringResponse" name="getAsStringResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAsObject">
+
+         <wsdl:input message="impl:getAsObjectRequest" name="getAsObjectRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getAsObjectResponse" name="getAsObjectResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="UrlConverterSoapBinding" type="impl:UrlConverter">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getAsString">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getAsStringRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getAsStringResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAsObject">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getAsObjectRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getAsObjectResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="UrlConverterService">
+
+      <wsdl:port binding="impl:UrlConverterSoapBinding" name="UrlConverter">
+
+         <wsdlsoap:address location="http://localhost:8080/PlanoDeEnsino/services/UrlConverter"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
